@@ -123,8 +123,8 @@ class HTElementsLicensesItemLicense extends LitElement {
             <div class="license-id">ID лицензии: <span class="value">${
               data.licenseId
             }</span></div>
-            <div class="order-id">ID заказа: <span class="value">${
-              data.orderId
+            <div class="order-id">№ заказа: <span class="value">${
+              data.orderNumber
             }</span></div>
             <div class="created">Дата создания: <span class="value"><ht-date .data=${
               data.created
