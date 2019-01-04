@@ -11,7 +11,6 @@ import "./ht-elements-licenses-item-license";
 class HTElementsLicensesItem extends LitElement {
   render() {
     const { data, opened } = this;
-    console.log(data);
     return html`
     ${SharedStyles}
     <style>
