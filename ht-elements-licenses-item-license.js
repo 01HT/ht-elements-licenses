@@ -117,12 +117,17 @@ class HTElementsLicensesItemLicense extends LitElement {
         <div id="container">
           <div id="info">
             <div class="name">${data.license.name}</div>
-            <div class="project">Проект: <span class="value">${
-              data.project === "" ? "-" : data.project
-            }</span></div>
             <div class="license-id">ID лицензии: <span class="value">${
               data.licenseId
             }</span></div>
+            <div class="project">Идентификатор проекта: <span class="value">${
+              data.project === "" ? "-" : data.project
+            }</span></div>
+            <div class="license-id">Версия: <span class="value"><a id="license-type" href="https://github.com/01HT/elements-single-commercial-license/tree/v${
+              data.version
+            }" target="_blank" rel="noopener">
+              ${data.version}
+            </a></span></div>
             <div class="order-id">№ заказа: <span class="value">${
               data.orderNumber
             }</span></div>
