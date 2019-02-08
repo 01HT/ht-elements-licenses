@@ -1,5 +1,5 @@
 "use strict";
-import { LitElement, html } from "@polymer/lit-element";
+import { LitElement, html, css } from "lit-element";
 import { repeat } from "lit-html/directives/repeat.js";
 import "@01ht/ht-image";
 import "@01ht/ht-date";
@@ -9,11 +9,9 @@ import "@polymer/iron-collapse";
 import "./ht-elements-licenses-item-license";
 
 class HTElementsLicensesItem extends LitElement {
-  render() {
-    const { data, opened } = this;
-    return html`
-    ${SharedStyles}
-    <style>
+  static styles = [
+    window.SharedStyles,
+    css`<style>
       :host {
         display: flex;
         position: relative;
@@ -112,7 +110,12 @@ class HTElementsLicensesItem extends LitElement {
     [hidden] {
       display:none;
     }
-    </style>
+    </style>`
+  ];
+
+  render() {
+    const { data, opened } = this;
+    return html`
     <iron-iconset-svg size="24" name="ht-elements-licenses-item">
       <svg>
           <defs>
@@ -157,18 +160,18 @@ class HTElementsLicensesItem extends LitElement {
                 </div>
               </div>
         <div>
-            <div id="header" @click=${_ => {
+            <div id="header" @click="${
               this.toggle();
-            }}><div>Список лицензий</div><iron-icon icon="ht-elements-licenses-item:${
+            }"><div>Список лицензий</div><iron-icon icon="ht-elements-licenses-item:${
             opened ? "expand-less" : "expand-more"
           }"></iron-icon></div>
-          <iron-collapse ?opened=${opened}>
+          <iron-collapse ?opened="${opened}">
                 ${html`
           <div id="list">
             ${repeat(
               data.items,
               item =>
-                html`<ht-elements-licenses-item-license .data=${item}></ht-elements-licenses-item-license>`
+                html`<ht-elements-licenses-item-license .data="${item}"></ht-elements-licenses-item-license>`
             )}
         </div>`}
               </iron-collapse>
@@ -179,10 +182,6 @@ class HTElementsLicensesItem extends LitElement {
         : null
     }
 `;
-  }
-
-  static get is() {
-    return "ht-elements-licenses-item";
   }
 
   static get properties() {
@@ -197,4 +196,4 @@ class HTElementsLicensesItem extends LitElement {
   }
 }
 
-customElements.define(HTElementsLicensesItem.is, HTElementsLicensesItem);
+customElements.define("ht-elements-licenses-item", HTElementsLicensesItem);

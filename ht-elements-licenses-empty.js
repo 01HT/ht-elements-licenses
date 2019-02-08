@@ -1,12 +1,11 @@
 "use strict";
-import { LitElement, html } from "@polymer/lit-element";
+import { LitElement, html, css } from "lit-element";
 import "@polymer/paper-button";
 
 class HTElementsLicensesEmpty extends LitElement {
-  render() {
-    return html`
-    ${SharedStyles}
-    <style>
+  static styles = [
+    window.SharedStyles,
+    css`<style>
         :host {
             display: flex;
             position: relative;
@@ -41,7 +40,11 @@ class HTElementsLicensesEmpty extends LitElement {
             font-size: 16px;
             color: var(--secondary-text-color);
         }
-    </style>
+    </style>`
+  ];
+
+  render() {
+    return html`
     <div id="container">
         <img src="${
           window.cloudinaryURL
@@ -56,10 +59,6 @@ class HTElementsLicensesEmpty extends LitElement {
     </div>
 `;
   }
-
-  static get is() {
-    return "ht-elements-licenses-empty";
-  }
 }
 
-customElements.define(HTElementsLicensesEmpty.is, HTElementsLicensesEmpty);
+customElements.define("ht-elements-licenses-empty", HTElementsLicensesEmpty);

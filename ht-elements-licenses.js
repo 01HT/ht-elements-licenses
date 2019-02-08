@@ -1,16 +1,14 @@
 "use strict";
-import { LitElement, html } from "@polymer/lit-element";
+import { LitElement, html, css } from "lit-element";
 import { repeat } from "lit-html/directives/repeat.js";
 
 import "./ht-elements-licenses-empty.js";
 import "./ht-elements-licenses-item.js";
 
 class HTElementsLicenses extends LitElement {
-  render() {
-    const { items } = this;
-    return html`
-    ${SharedStyles}
-    <style>
+  static styles = [
+    window.SharedStyles,
+    css`<style>
       :host {
         display: block;
         position: relative;
@@ -22,7 +20,12 @@ class HTElementsLicenses extends LitElement {
         grid-gap: 16px;
         margin-top: 32px;
       }
-    </style>
+    </style>`
+  ];
+
+  render() {
+    const { items } = this;
+    return html`
     <div id="container">
       ${
         items.length === 0
@@ -33,16 +36,12 @@ class HTElementsLicenses extends LitElement {
             ${repeat(
               items,
               item =>
-                html`<ht-elements-licenses-item .data=${item}></ht-elements-licenses-item>`
+                html`<ht-elements-licenses-item .data="${item}"></ht-elements-licenses-item>`
             )}
         </div>`
       }
     </div>
 `;
-  }
-
-  static get is() {
-    return "ht-elements-licenses";
   }
 
   static get properties() {
@@ -52,4 +51,4 @@ class HTElementsLicenses extends LitElement {
   }
 }
 
-customElements.define(HTElementsLicenses.is, HTElementsLicenses);
+customElements.define("ht-elements-licenses", HTElementsLicenses);

@@ -1,15 +1,13 @@
 "use strict";
-import { LitElement, html } from "@polymer/lit-element";
+import { LitElement, html, css } from "lit-element";
 import "@01ht/ht-date";
 import "@polymer/iron-iconset-svg/iron-iconset-svg.js";
 import "@polymer/iron-icon/iron-icon.js";
 
 class HTElementsLicensesItemLicense extends LitElement {
-  render() {
-    const { data } = this;
-    return html`
-    ${SharedStyles}
-    <style>
+  static styles = [
+    window.SharedStyles,
+    css`<style>
       :host {
         display: flex;
         position: relative;
@@ -102,7 +100,12 @@ class HTElementsLicensesItemLicense extends LitElement {
       [hidden] {
         display:none;
       }
-    </style>
+    </style>`
+  ];
+
+  render() {
+    const { data } = this;
+    return html`
     <iron-iconset-svg size="24" name="ht-elements-licenses-item-license">
       <svg>
           <defs>
@@ -131,9 +134,9 @@ class HTElementsLicensesItemLicense extends LitElement {
             <div class="order-id">№ заказа: <span class="value">${
               data.orderNumber
             }</span></div>
-            <div class="created">Дата создания: <span class="value"><ht-date .data=${
+            <div class="created">Дата создания: <span class="value"><ht-date .data="${
               data.created
-            }></ht-date></span></div>
+            }"></ht-date></span></div>
             <div class="status">Статус:
                 ${
                   data.project === ""
@@ -145,9 +148,9 @@ class HTElementsLicensesItemLicense extends LitElement {
           ${
             data.project === ""
               ? html`<div id="actions">
-            <paper-button raised ?hidden=${data.project !== ""} @click=${_ => {
-                  this._bindProject();
-                }}>Активировать</paper-button>
+            <paper-button raised ?hidden="${data.project !== ""}" @click="${
+                  this._bindProject
+                }">Активировать</paper-button>
           </div>`
               : null
           }
@@ -155,10 +158,6 @@ class HTElementsLicensesItemLicense extends LitElement {
         : null
     }
 `;
-  }
-
-  static get is() {
-    return "ht-elements-licenses-item-license";
   }
 
   static get properties() {
@@ -181,6 +180,6 @@ class HTElementsLicensesItemLicense extends LitElement {
 }
 
 customElements.define(
-  HTElementsLicensesItemLicense.is,
+  "ht-elements-licenses-item-license",
   HTElementsLicensesItemLicense
 );
