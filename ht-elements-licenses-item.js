@@ -8,110 +8,109 @@ import "@polymer/iron-icon/iron-icon.js";
 import "@polymer/iron-collapse";
 import "./ht-elements-licenses-item-license";
 
+import { styles } from "@01ht/ht-theme/styles";
+
 class HTElementsLicensesItem extends LitElement {
-  static styles = [
-    window.SharedStyles,
-    css`<style>
-      :host {
-        display: flex;
-        position: relative;
-        box-sizing:border-box;
-      }
+  static get styles() {
+    return [
+      styles,
+      css`
+        a {
+          display: block;
+          color: inherit;
+          text-decoration: none;
+        }
 
-      a {
-        display:block;
-        color:inherit;
-        text-decoration: none;
-      }
+        a:hover {
+          text-decoration: underline;
+        }
 
-      a:hover {
-        text-decoration: underline;
-      }
+        ht-image {
+          width: 64px;
+          border-radius: 3px;
+          overflow: hidden;
+        }
 
-      ht-image {
-        width: 64px;
-        border-radius: 3px;
-        overflow: hidden;
-      }
+        ht-elements-licenses-item-license {
+          margin-top: 16px;
+        }
 
-      ht-elements-licenses-item-license {
-        margin-top: 16px;
-      }
+        #container {
+          width: 100%;
+          font-size: 14px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-radius: 3px;
+          grid-gap: 16px;
+          padding: 16px;
+          background: #fff;
+          overflow: hidden;
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        }
 
-      #container {
-        width:100%;
-        font-size: 14px;
-        position:relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius:3px;
-        grid-gap:16px;
-        padding: 16px;
-        background: #fff;
-        overflow:hidden;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-      }
+        #info {
+          flex: 1;
+        }
 
-      #info {
-        flex: 1;
-      }
+        #list {
+          display: flex;
+          flex-direction: column;
+        }
 
-      #list {
-        display: flex;
-        flex-direction: column;
-      }
+        #header {
+          display: flex;
+          justify-content: space-between;
+          font-size: 14px;
+          align-items: center;
+          max-width: 140px;
+          color: var(--accent-color);
+          font-weight: 500;
+          cursor: pointer;
+          margin-top: 8px;
+          user-select: none;
+        }
 
-      #header {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-        align-items:center;
-        max-width: 140px;
-        color: var(--accent-color);
-        font-weight: 500;
-        cursor:pointer;
-        margin-top: 8px;
-        user-select: none;
-      }
+        .item {
+          display: flex;
+        }
 
-    .item {
-      display:flex;
-    }
+        .item span {
+          color: var(--secondary-text-color);
+        }
 
-    .item span {
-      color: var(--secondary-text-color);
-    }
+        .name {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 1.3;
+        }
 
-    .name {
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.3;
-    }
+        .author {
+          display: flex;
+          position: relative;
+          align-items: center;
+        }
 
-    .author {
-      display:flex;
-      position:relative;
-      align-items:center;
-    }
+        .author {
+          color: var(--secondary-text-color);
+        }
 
-    .author {
-      color: var(--secondary-text-color);
-    }
+        .author a {
+          margin-left: 4px;
+        }
 
-    .author a {
-      margin-left: 4px;
-    }
+        .info {
+          margin-left: 16px;
+        }
 
-    .info {
-      margin-left: 16px;
-    }
-
-    [hidden] {
-      display:none;
-    }
-    </style>`
-  ];
+        [hidden] {
+          display: none;
+        }
+      `
+    ];
+  }
 
   render() {
     const { data, opened } = this;
@@ -161,7 +160,7 @@ class HTElementsLicensesItem extends LitElement {
               </div>
         <div>
             <div id="header" @click="${
-              this.toggle();
+              this.toggle
             }"><div>Список лицензий</div><iron-icon icon="ht-elements-licenses-item:${
             opened ? "expand-less" : "expand-more"
           }"></iron-icon></div>

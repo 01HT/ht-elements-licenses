@@ -4,104 +4,102 @@ import "@01ht/ht-date";
 import "@polymer/iron-iconset-svg/iron-iconset-svg.js";
 import "@polymer/iron-icon/iron-icon.js";
 
+import { styles } from "@01ht/ht-theme/styles";
+
 class HTElementsLicensesItemLicense extends LitElement {
-  static styles = [
-    window.SharedStyles,
-    css`<style>
-      :host {
-        display: flex;
-        position: relative;
-        box-sizing:border-box;
-      }
+  static get styles() {
+    return [
+      styles,
+      css`
+        iron-icon {
+          margin: 0 2px;
+        }
 
-      iron-icon {
-        margin: 0 2px;
-      }
+        #container {
+          width: 100%;
+          font-size: 14px;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          border-radius: 3px;
+          grid-gap: 16px;
+          padding-top: 16px;
+          background: #fff;
+          overflow: hidden;
+          border-top: 1px solid #ddd;
+        }
 
-      #container {
-        width:100%;
-        font-size: 14px;
-        position:relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-radius:3px;
-        grid-gap:16px;
-        padding-top: 16px;
-        background: #fff;
-        overflow:hidden;
-        border-top: 1px solid #ddd;
-      }
+        #info {
+          flex: 1;
+        }
 
-      #info {
-        flex: 1;
-      }
-
-      #info > * {
+        #info > * {
           min-height: 26px;
           line-height: 26px;
           font-weight: 500;
-      }
+        }
 
-      .value {
-        color: var(--secondary-text-color);
-        font-weight: 400;
-      }
+        .value {
+          color: var(--secondary-text-color);
+          font-weight: 400;
+        }
 
-      .name {
-        font-size :14px;
-        font-weight: 500;
-        margin-bottom: 8px;
-        color: var(--secondary-text-color);
-      }
+        .name {
+          font-size: 14px;
+          font-weight: 500;
+          margin-bottom: 8px;
+          color: var(--secondary-text-color);
+        }
 
-      .amount .value {
-        font-weight: 500;
-        color: var(--accent-color);
-      }
+        .amount .value {
+          font-weight: 500;
+          color: var(--accent-color);
+        }
 
-      .status {
-        display:flex;
-        align-items:center;
-        flex-wrap:wrap;
-      }
+        .status {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+        }
 
-      #header {
-        display: flex;
-        justify-content: space-between;
-        font-size: 16px;
-        max-width: 140px;
-        color: var(--accent-color);
-        font-weight: 500;
-        cursor:pointer;
-        margin: 8px 0;
-        user-select: none;
-      }
+        #header {
+          display: flex;
+          justify-content: space-between;
+          font-size: 16px;
+          max-width: 140px;
+          color: var(--accent-color);
+          font-weight: 500;
+          cursor: pointer;
+          margin: 8px 0;
+          user-select: none;
+        }
 
-      paper-button {
-        margin: 0;
-        margin-left: 8px;
-      }
+        paper-button {
+          margin: 0;
+          margin-left: 8px;
+        }
 
-      #actions {
-        display:flex;
-        justify-content: flex-end;
-        margin-top: 8px;
-      }
+        #actions {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 8px;
+        }
 
-      iron-icon[icon="ht-elements-licenses-item-license:warning"] {
-        color: #f9a825;
-      }
+        iron-icon[icon="ht-elements-licenses-item-license:warning"] {
+          color: #f9a825;
+        }
 
-      iron-icon[icon="ht-elements-licenses-item-license:check-circle"] {
-        color: #4caf50;
-      }
+        iron-icon[icon="ht-elements-licenses-item-license:check-circle"] {
+          color: #4caf50;
+        }
 
-      [hidden] {
-        display:none;
-      }
-    </style>`
-  ];
+        [hidden] {
+          display: none;
+        }
+      `
+    ];
+  }
 
   render() {
     const { data } = this;

@@ -5,23 +5,21 @@ import { repeat } from "lit-html/directives/repeat.js";
 import "./ht-elements-licenses-empty.js";
 import "./ht-elements-licenses-item.js";
 
-class HTElementsLicenses extends LitElement {
-  static styles = [
-    window.SharedStyles,
-    css`<style>
-      :host {
-        display: block;
-        position: relative;
-        box-sizing: border-box;
-      }
+import { styles } from "@01ht/ht-theme/styles";
 
-      #list {
-        display:grid;
-        grid-gap: 16px;
-        margin-top: 32px;
-      }
-    </style>`
-  ];
+class HTElementsLicenses extends LitElement {
+  static get styles() {
+    return [
+      styles,
+      css`
+        #list {
+          display: grid;
+          grid-gap: 16px;
+          margin-top: 32px;
+        }
+      `
+    ];
+  }
 
   render() {
     const { items } = this;
