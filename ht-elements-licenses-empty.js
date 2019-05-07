@@ -9,7 +9,8 @@ class HTElementsLicensesEmpty extends LitElement {
     return [
       styles,
       css`
-        a {
+        a,
+        a:hover {
           color: inherit;
           text-decoration: none;
         }
