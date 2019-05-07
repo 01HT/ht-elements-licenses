@@ -18,6 +18,7 @@ class HTElementsLicensesEmpty extends LitElement {
           width: 15vw;
           max-width: 164px;
           min-width: 128px;
+          margin: auto;
         }
 
         #container {
