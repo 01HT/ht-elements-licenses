@@ -126,7 +126,7 @@ class HTElementsLicensesItemLicense extends LitElement {
             }</span></div>
             <div class="license-id">Версия: <span class="value"><a id="license-type" href="https://github.com/01HT/elements-single-commercial-license/tree/v${
               data.version
-            }" target="_blank" rel="noopener">
+            }" target="_blank" rel="noopener nofollow">
               ${data.version}
             </a></span></div>
             <div class="order-id">№ заказа: <span class="value">${
