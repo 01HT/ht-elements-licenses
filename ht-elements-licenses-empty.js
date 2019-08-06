@@ -47,7 +47,7 @@ class HTElementsLicensesEmpty extends LitElement {
     return html`
     <div id="container">
         <img src="${
-          window.cloudinaryURL
+          window.appConfig.cloudinary.url
         }/image/upload/apps/elements/pages/my-licenses/empty.svg" alt="No licenses">
         <div id="text" class="mdc-typography--headline5">У вас пока нет лицензий</div>
         <div id="sub-text">
