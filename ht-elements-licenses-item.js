@@ -40,6 +40,7 @@ class HTElementsLicensesItem extends LitElement {
           font-size: 14px;
           position: relative;
           display: flex;
+          box-sizing: border-box;
           flex-direction: column;
           justify-content: space-between;
           border-radius: 3px;
